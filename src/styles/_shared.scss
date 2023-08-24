@@ -1,7 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: $dark-color;
-    color: $white-color;
+    background: $dark;
+    color: $white;
 }
 
 .container {
@@ -12,16 +12,23 @@ body {
 }
 
 .main-button {
-    background: $accent-color;
     padding: 24px 43px;
     border-radius: 10px;
+    background: $accent;
+    color: $white;
+    transition: all .2s ease-in;
 
     span {
-        color: #FFF;
+        color: inherit;
         font-size: 18px;
         font-weight: 600;
         line-height: 122.2%;
         letter-spacing: 1px;
+    }
+
+    &:hover {
+        color: $accent;
+        background: #fff;
     }
 
     @media (max-width: 991px) {
