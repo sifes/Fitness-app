@@ -1,0 +1,33 @@
+.header {
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+
+
+    &__logo {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 122.2%;
+        letter-spacing: 1px;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    &__link a {
+        color: #FFF;
+        opacity: 0.67;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        transition: opacity .3s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

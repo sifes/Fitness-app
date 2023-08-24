@@ -1,0 +1,38 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: $dark-color;
+    color: $white-color;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 20px;
+    padding: 0 20px;
+}
+
+.main-button {
+    background: $accent-color;
+    padding: 24px 43px;
+    border-radius: 10px;
+
+    span {
+        color: #FFF;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 122.2%;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 18px 36px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 14px 30px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px 24px;
+    }
+}
