@@ -3,6 +3,7 @@ import Layout from '../Layout';
 import NotFound from '../../pages/NotFound';
 import Home from '../../pages/Home';
 import { PATH } from '../../utils/constants';
+import Exercises from '../../pages/Exercises';
 
 
 
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                // another page...
+                element: <Exercises />,
+                path: PATH.EXERCISES,
             },
         ],
     },
