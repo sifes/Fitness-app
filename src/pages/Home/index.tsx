@@ -12,7 +12,7 @@ const Home: React.FC = () => {
                 <h1 className="home__title">Best <br />Exercises</h1>
                 <p className="home__text">Did you know that you are strong?</p>
                 <div className="home__actions">
-                    <NavLink to={PATH.INDEX} className='home__link'>Get Fit</NavLink>
+                    <NavLink to={PATH.EXERCISES} className='home__link'>Get Fit</NavLink>
                 </div>
             </div>
             <img className='home__bg' src="../../../src/assets/gym-bg.png" alt="" />

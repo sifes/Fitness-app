@@ -1,0 +1,32 @@
+.categories {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 24px;
+
+    .category {
+        cursor: pointer;
+        padding: 16px;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 0 1px 1px #ffffff26;
+
+        &__img {
+            width: 64px;
+            height: 64px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+}
