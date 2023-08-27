@@ -1,10 +1,39 @@
 import React from 'react'
 import Category from './Category'
+import Slider from "react-slick";
 import { useCustomSelector } from '../../../hooks'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Categories: React.FC<any> = () => {
   const state = useCustomSelector(state => state.bodyParts)
-  console.log(state);
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+
+  };
   const data = ["back",
     "cardio",
     "chest",
@@ -16,12 +45,12 @@ const Categories: React.FC<any> = () => {
     "upper legs",
     "waist"]
   return (
-    <div className='categories'>
+
+    <Slider {...settings}>
       {
         data.map(category => <Category key={category} title={category} />)
       }
-
-    </div>
+    </Slider>
   )
 }
 
