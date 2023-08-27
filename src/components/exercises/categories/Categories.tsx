@@ -4,9 +4,11 @@ import Slider from "react-slick";
 import { useCustomSelector } from '../../../hooks'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useGetExercisesQuery } from '../../../store/api';
 
 const Categories: React.FC<any> = () => {
-  const state = useCustomSelector(state => state.bodyParts)
+  const { data, error, isLoading } = useGetExercisesQuery('bodyPartList')
+  console.log(data);
   const settings = {
     infinite: true,
     speed: 500,
@@ -34,22 +36,22 @@ const Categories: React.FC<any> = () => {
     ],
 
   };
-  const data = ["back",
-    "cardio",
-    "chest",
-    "lower arms",
-    "lower legs",
-    "neck",
-    "shoulders",
-    "upper arms",
-    "upper legs",
-    "waist"]
+  // const data = ["back",
+  //   "cardio",
+  //   "chest",
+  //   "lower arms",
+  //   "lower legs",
+  //   "neck",
+  //   "shoulders",
+  //   "upper arms",
+  //   "upper legs",
+  //   "waist"]
   return (
 
     <Slider {...settings}>
-      {
-        data.map(category => <Category key={category} title={category} />)
-      }
+      {/* {
+        data?.map(category => <Category key={category} title={category} />)
+      } */}
     </Slider>
   )
 }
