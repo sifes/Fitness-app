@@ -114,7 +114,8 @@ body {
 
 .hvr-fade:hover,
 .hvr-fade:focus,
-.hvr-fade:active {
+.hvr-fade:active,
+.hvr-fade--active {
     background-color: #ffffff5d;
     color: white;
 }

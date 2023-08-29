@@ -1,7 +1,7 @@
 import React from 'react'
 import { IExercise } from '../../types';
 
-const ExerciseCard: React.FC<IExercise> = ({ bodyPart, equipment, gifUrl, id, name, target }) => {
+const ExerciseCard: React.FC<IExercise> = ({ bodyPart, equipment, gifUrl, name, target }) => {
     return (
         <div className='exercise hvr-fade'>
             <h4>{name}</h4>
@@ -15,4 +15,4 @@ const ExerciseCard: React.FC<IExercise> = ({ bodyPart, equipment, gifUrl, id, na
     )
 }
 
-export default ExerciseCard
+export default ExerciseCard  

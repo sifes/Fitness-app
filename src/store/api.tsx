@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IExercise } from '../types';
 
 const url = 'https://exercisedb.p.rapidapi.com'; // /exercises/bodyPartList
 export const api = createApi({
@@ -9,7 +10,7 @@ export const api = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getExercises: builder.query<string[], string>({     // <----------------------------------------------------------
+        getExercises: builder.query<IExercise[], string>({
             query: (query = '/') => `/exercises/${query}`,
         }),
     }),

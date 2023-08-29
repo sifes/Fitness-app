@@ -3,11 +3,13 @@ import { IExercise } from '../../types';
 
 interface IState {
     exercises: IExercise[],
-    selectedBodyPart: string | null
+    selectedBodyPart: string | null,
+    searchValue: string
 }
 const initialState: IState = {
     exercises: [],
-    selectedBodyPart: null
+    selectedBodyPart: 'lower legs',
+    searchValue: ''
 }
 const exercisesSlice = createSlice({
     name: 'exercises',
@@ -16,13 +18,16 @@ const exercisesSlice = createSlice({
         onBodyPartClick(state: IState, action: PayloadAction<string>) {
             state.selectedBodyPart = action.payload
         },
+        setSearchValue(state: IState, action: PayloadAction<string>) {
+            state.searchValue = action.payload
+        },
         setExercises(state: IState, action: PayloadAction<IExercise[]>) {
             state.exercises = action.payload
-        }
+        },
     },
 });
 
-export const { onBodyPartClick, setExercises } = exercisesSlice.actions;
+export const { onBodyPartClick, setSearchValue, setExercises } = exercisesSlice.actions;
 export default exercisesSlice.reducer;
 
 
