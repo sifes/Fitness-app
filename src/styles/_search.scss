@@ -1,6 +1,6 @@
 .search {
     display: flex;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     justify-content: center;
 
     input {
@@ -8,6 +8,8 @@
         background-color: $white;
         border-radius: 8px 0 0 8px;
         color: black;
+        max-width: 380px;
+        width: 100%;
     }
 
     button {
@@ -16,5 +18,4 @@
         padding: 8px;
         border-radius: 0 5px 5px 0;
     }
-
 }

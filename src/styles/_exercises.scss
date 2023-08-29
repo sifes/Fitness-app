@@ -1,0 +1,23 @@
+.exercises {
+    &__title {
+        text-align: center;
+        font-size: 36px;
+        color: $white;
+        margin-bottom: 16px;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 36px;
+        grid-row-gap: 36px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

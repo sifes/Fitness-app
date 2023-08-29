@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "./api";
+import exercisesReducer from './slices/exersicesSlice'
 export const store = configureStore({
     reducer: {
+        exercisesReducer,
         [api.reducerPath]: api.reducer
     },
     middleware: (getDefaultMiddleware) =>
