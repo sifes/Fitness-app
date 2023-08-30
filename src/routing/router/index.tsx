@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import NotFound from '../../pages/NotFound';
 import Home from '../../pages/Home';
 import { PATH } from '../../utils/constants';
-import Exercises from '../../pages/Exercises';
+import Exercises from '../../pages/ExercisesPage';
 
 
 

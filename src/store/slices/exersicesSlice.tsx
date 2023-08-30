@@ -3,12 +3,12 @@ import { IExercise } from '../../types';
 
 interface IState {
     exercises: IExercise[],
-    selectedBodyPart: string | null,
+    selectedBodyPart: string,
     searchValue: string
 }
 const initialState: IState = {
     exercises: [],
-    selectedBodyPart: 'lower legs',
+    selectedBodyPart: 'chest',
     searchValue: ''
 }
 const exercisesSlice = createSlice({
