@@ -11,9 +11,19 @@ body {
     padding: 0 20px;
 }
 
+// slider
+.slick-slider {
+    .slick-prev {
+        left: -10px;
+    }
+
+    .slick-next {
+        right: -10px;
+    }
+}
 
 // <------- ANIMATIONS/HOVER -------> //
-/* float-shadow */
+/* <--- float-shadow ---> */
 .hvr-float-shadow {
     display: inline-block;
     vertical-align: middle;
@@ -61,9 +71,9 @@ body {
     transform: translateY(4px);
 }
 
-/*/ float-shadow /*/
+/* </--- float-shadow ---/> */
 
-/* Underline From Left */
+/* <--- Underline From Left ---> */
 .hvr-underline-from-left {
     display: inline-block;
     vertical-align: middle;
@@ -97,8 +107,10 @@ body {
     right: 0;
 }
 
-/*/ Underline From Left /*/
-/* Fade */
+/* </--- Underline From Left ---/> */
+
+/* <--- Fade ---> */
+
 .hvr-fade {
     display: inline-block;
     vertical-align: middle;
@@ -118,5 +130,7 @@ body {
     background-color: #ffffff5d;
     color: white;
 }
+
+/* </--- Fade ---/> */
 
 // </------- ANIMATIONS/HOVER -------/> //

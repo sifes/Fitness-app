@@ -4,9 +4,9 @@ import { useGetExerciseByIDQuery } from '../store/api'
 import { NavLink } from 'react-router-dom'
 import { PATH } from '../utils/constants'
 
-interface IOneExercisePage { }
+interface IDetailedExercise { }
 
-const OneExercisePage: React.FC<IOneExercisePage> = () => {
+const DetailedExercise: React.FC<IDetailedExercise> = () => {
     const { id } = useParams()
     const { data, error, isLoading } = useGetExerciseByIDQuery(`${id}`)  // 
 
@@ -14,9 +14,10 @@ const OneExercisePage: React.FC<IOneExercisePage> = () => {
     if (error) return <div>Error occured</div>
     return (
         <div className='container'>
-            <NavLink to={PATH.EXERCISES} className='one-exercise__link'>Back</NavLink>
-            <div className='one-exercise__card'>
-                <div className="one-exercise__desc">
+            <div className='detailed-exercise'></div>
+            <NavLink to={PATH.EXERCISES} className='detailed-exercise__link'>Back</NavLink>
+            <div className='detailed-exercise__info exercise-detailed'>
+                <div className="exercise-detailed__desc">
                     <h4>{data.name}</h4>
                     <ul>
                         <li>
@@ -30,7 +31,7 @@ const OneExercisePage: React.FC<IOneExercisePage> = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="one-exercise__image">
+                <div className="exercise-detailed__image">
                     <img src={data.gifUrl} alt={data.bodyPart} />
                 </div>
             </div>
@@ -39,4 +40,4 @@ const OneExercisePage: React.FC<IOneExercisePage> = () => {
     )
 }
 
-export { OneExercisePage }
+export { DetailedExercise }

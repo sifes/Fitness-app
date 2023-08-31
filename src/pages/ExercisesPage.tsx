@@ -7,7 +7,7 @@ const ExercisesPage: React.FC = () => {
     return (
         <div className='container'>
             <div className="exercises">
-                <h2 className="exercises__title">S Awesome Exersices!</h2>
+                <h2 className="exercises__title">Search Awesome Exersices!</h2>
                 <Search />
                 <BodyParts />
                 <Exercises />

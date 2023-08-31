@@ -1,9 +1,9 @@
 .header {
-    color: #FFF;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 60px 0;
+    color: #FFF;
 
     &__logo {
         padding: 10px;
@@ -20,15 +20,15 @@
     align-items: center;
     gap: 50px;
 
-    &__link a {
+    &__link {
         color: #FFF;
         opacity: 0.67;
         font-size: 12px;
         letter-spacing: 1.5px;
         transition: opacity .2s ease-in-out;
-    }
 
-    &:hover a {
-        opacity: 1;
+        &:hover {
+            opacity: 1;
+        }
     }
 }

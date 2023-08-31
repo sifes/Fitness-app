@@ -31,7 +31,7 @@ const Search: React.FC = () => {
                 onKeyPress={handleKeyPress}
             />
             <Link to='exercises' smooth duration={500}>
-                <button className='search__button' onClick={handleButtonCLick} >Search</button>
+                <button className='search__button' onClick={handleButtonCLick}>Search</button>
             </Link>
         </div>
     )

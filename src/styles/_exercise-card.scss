@@ -4,24 +4,25 @@
     align-items: center;
     gap: 12px;
     padding: 24px 16px;
+
     border-radius: 20px;
     box-shadow: 0 1px 5px 5px rgba(135, 135, 135, 0.2);
     text-align: center;
 
     div {
         max-width: 220px;
-        border-radius: 10px;
-        overflow: hidden;
         margin-bottom: 8px;
+        overflow: hidden;
+        border-radius: 10px;
     }
 
     h4 {
+        flex: 1 0 auto;
+        margin-bottom: 6px;
         color: white;
         font-size: 24px;
         text-transform: capitalize;
         font-weight: 700;
-        margin-bottom: 6px;
-        flex: 1 0 auto;
     }
 
     p {

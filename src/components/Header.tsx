@@ -9,7 +9,7 @@ const Header: React.FC = () => {
             <div className='header'>
                 <Logo />
                 <ul className="header__nav nav">
-                    <li className="nav__link hvr-underline-from-left"><NavLink to={PATH.EXERCISES}>EXERCISES</NavLink></li>
+                    <li><NavLink to={PATH.EXERCISES} className="nav__link hvr-underline-from-left">EXERCISES</NavLink></li>
                 </ul>
             </div>
         </div>

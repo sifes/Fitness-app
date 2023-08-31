@@ -4,7 +4,7 @@ import NotFound from '../pages/NotFound';
 import Home from '../pages/Home';
 import { PATH } from '../utils/constants';
 import Exercises from '../pages/ExercisesPage';
-import { OneExercisePage } from '../pages/OneExercisePage';
+import { DetailedExercise } from '../pages/DetailedExercise';
 
 
 
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: `${PATH.EXERCISES}/:id`,
-                element: <OneExercisePage />,
+                element: <DetailedExercise />,
             },
         ],
     },
