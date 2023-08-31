@@ -1,6 +1,6 @@
 import React from 'react'
-import { onBodyPartClick } from '../../../store/slices/exersicesSlice'
-import { useCustomDispatch, useCustomSelector } from '../../../hooks'
+import { onBodyPartClick } from '../../store/slices/exersicesSlice'
+import { useCustomDispatch, useCustomSelector } from '../../hooks'
 
 const BodyPart: React.FC<{ title: string }> = ({ title }) => {
     const { selectedBodyPart } = useCustomSelector(state => state.exercisesReducer)

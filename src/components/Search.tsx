@@ -1,6 +1,6 @@
 import React from 'react'
-import { useCustomDispatch } from '../../hooks'
-import { setSearchValue } from '../../store/slices/exersicesSlice'
+import { useCustomDispatch } from '../hooks'
+import { setSearchValue } from '../store/slices/exersicesSlice'
 import { Link } from 'react-scroll';
 
 const Search: React.FC = () => {
@@ -16,7 +16,7 @@ const Search: React.FC = () => {
             setinputValue('')
         }
     }
-    function handleButtonPress(event: React.MouseEvent<HTMLButtonElement>) { // <========================== HERE YOU SHPULD WRITE TYPES Event<HTMLInputElement>
+    function handleButtonCLick(event: React.MouseEvent<HTMLButtonElement>) { // <========================== HERE YOU SHPULD WRITE TYPES Event<HTMLInputElement>
         event.preventDefault()
         dispatch(setSearchValue(inputValue))
         setinputValue('')
@@ -31,7 +31,7 @@ const Search: React.FC = () => {
                 onKeyPress={handleKeyPress}
             />
             <Link to='exercises' smooth duration={500}>
-                <button className='search__button' onClick={handleButtonPress} >Search</button>
+                <button className='search__button' onClick={handleButtonCLick} >Search</button>
             </Link>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from "react-slick";
 
-import { BodyPartsData, sliderSettings } from '../../../utils/constants';
+import { BodyPartsData, sliderSettings } from '../../utils/constants';
 import { BodyPart } from './BodyPart';
 
 const BodyParts: React.FC = () => {

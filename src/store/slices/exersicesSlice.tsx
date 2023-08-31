@@ -16,7 +16,11 @@ const exercisesSlice = createSlice({
     initialState,
     reducers: {
         onBodyPartClick(state: IState, action: PayloadAction<string>) {
-            state.selectedBodyPart = action.payload
+            if (state.selectedBodyPart === action.payload) {
+                state.selectedBodyPart = ''
+            } else {
+                state.selectedBodyPart = action.payload
+            }
         },
         setSearchValue(state: IState, action: PayloadAction<string>) {
             state.searchValue = action.payload
