@@ -15,8 +15,7 @@ const Exercises: React.FC<IExercises> = () => {
     const dispatch = useCustomDispatch()
     const { selectedBodyPart, searchValue, exercises } = useCustomSelector(state => state.exercisesReducer)
     const { data, error, isLoading } = useGetExercisesQuery(``)  // 
-
-    function helper(ExercisesData: IExercise[], pages: number) {
+    function helper(ExercisesData: IExercise[]) {
         let Exercises = [...ExercisesData]
         Exercises = filterByBodyPart(Exercises, selectedBodyPart)
         Exercises = filterBySearch(Exercises, searchValue)
@@ -24,7 +23,7 @@ const Exercises: React.FC<IExercises> = () => {
     }
 
     React.useEffect(() => {
-        !isLoading ? dispatch(helper([...data || []], 1)) : null
+        !isLoading ? dispatch(helper([...data || []])) : null
     }, [data, searchValue, selectedBodyPart])
 
     if (isLoading) return <div>Loading...</div>
@@ -33,7 +32,7 @@ const Exercises: React.FC<IExercises> = () => {
     return (
         <Element name='exercises' >
             {exercises.length ?
-                <div className="exercises__cards">
+                <div className="exercises__cards cards-exercises">
                     {exercises.map(exerciseData => <ExerciseCard key={exerciseData.id} {...exerciseData} />)}
                 </div> :
                 <ExercisesNotFound />}

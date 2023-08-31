@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../Layout';
-import NotFound from '../../pages/NotFound';
-import Home from '../../pages/Home';
-import { PATH } from '../../utils/constants';
-import Exercises from '../../pages/ExercisesPage';
+import Layout from './Layout';
+import NotFound from '../pages/NotFound';
+import Home from '../pages/Home';
+import { PATH } from '../utils/constants';
+import Exercises from '../pages/ExercisesPage';
+import { OneExercisePage } from '../pages/OneExercisePage';
 
 
 
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 element: <Exercises />,
                 path: PATH.EXERCISES,
+            },
+            {
+                path: `${PATH.EXERCISES}/:id`,
+                element: <OneExercisePage />,
             },
         ],
     },

@@ -13,10 +13,13 @@ export const api = createApi({
         getExercises: builder.query<IExercise[], string>({
             query: (query = '/') => `/exercises/${query}`,
         }),
+        getExerciseByID: builder.query<IExercise, string>({
+            query: (query = '/') => `/exercises/exercise/${query}`,
+        }),
     }),
 
 });
 
-export const { useGetExercisesQuery } = api;
+export const { useGetExercisesQuery, useGetExerciseByIDQuery } = api;
 
 
