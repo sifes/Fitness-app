@@ -13,18 +13,18 @@ interface IExercises { }
 
 const Exercises: React.FC<IExercises> = () => {
     const dispatch = useCustomDispatch()
-    const { selectedBodyPart, searchValue, exercises } = useCustomSelector(state => state.exercisesReducer)
+    const { selectedOptions, searchValue, exercises } = useCustomSelector(state => state.exercisesReducer)
     const { data, error, isLoading } = useGetExercisesQuery(``)  // 
     function helper(ExercisesData: IExercise[]) {
         let Exercises = [...ExercisesData]
-        Exercises = filterByBodyPart(Exercises, selectedBodyPart)
+        Exercises = filterByBodyPart(Exercises, selectedOptions.bodyPart)
         Exercises = filterBySearch(Exercises, searchValue)
         return setExercises(Exercises.splice(0, 6))
     }
 
     React.useEffect(() => {
         !isLoading ? dispatch(helper([...data || []])) : null
-    }, [data, searchValue, selectedBodyPart])
+    }, [data, searchValue, selectedOptions])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error occured</div>

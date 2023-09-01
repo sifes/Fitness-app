@@ -6,3 +6,7 @@ export interface IExercise {
     name: string
     target: string
 }
+export interface DataItem {
+    name: string;
+    data: string[];
+}

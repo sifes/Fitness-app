@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from '../components/Search'
-import BodyParts from '../components/bodyParts/BodyParts'
 import { Exercises } from '../components/exercises/Exercises'
+import { Options } from '../components/bodyParts/Options'
 
 const ExercisesPage: React.FC = () => {
     return (
@@ -9,7 +9,7 @@ const ExercisesPage: React.FC = () => {
             <div className="exercises">
                 <h2 className="exercises__title">Search Awesome Exersices!</h2>
                 <Search />
-                <BodyParts />
+                <Options />
                 <Exercises />
             </div>
         </div>

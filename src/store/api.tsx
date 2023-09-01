@@ -3,6 +3,7 @@ import { IExercise } from '../types';
 
 const url = 'https://exercisedb.p.rapidapi.com'; // /exercises/bodyPartList
 export const api = createApi({
+    reducerPath: 'exerciseApi',
     baseQuery: fetchBaseQuery({
         baseUrl: url, headers: {
             'X-RapidAPI-Key': '3b22504ff1mshee8d3ab7dbb395fp14e064jsnc409977ffdbe',
