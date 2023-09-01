@@ -3,13 +3,20 @@ import { useParams } from 'react-router-dom'
 import { useGetExerciseByIDQuery } from '../store/apiAll'
 import { NavLink } from 'react-router-dom'
 import { PATH } from '../utils/constants'
+import { useGetExerciseByNameQuery } from '../store/apiName'
 
 interface IDetailedExercise { }
 
 const DetailedExercise: React.FC<IDetailedExercise> = () => {
     const { id } = useParams()
-    const { data, error, isLoading } = useGetExerciseByIDQuery(`${id}`)  // 
+    const { data, error, isLoading } = useGetExerciseByIDQuery(`${id}`)
 
+    const { data: data2 } = useGetExerciseByNameQuery(`push up`) // THERE IS NO BENCH PRESS WTF
+    console.log(data2);
+    // so my idea was to fetch data from other api to get extra info about exercise
+    // and use this info in detailed exercise, but it actually cant be done
+    // because names are not the same and in that other api no such "additional info", so there is no profit.
+    // but idea was actually kinda cool (i didn`t know about that api should have reducer path, and had been getting error with middleware, so i learnt something new) 
     if (isLoading || !data) return <div>Loading...</div>
     if (error) return <div>Error occured</div>
 
