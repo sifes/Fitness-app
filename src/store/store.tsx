@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { api } from "./api";
+import { apiAll } from "./apiAll";
 import exercisesReducer from './slices/exersicesSlice'
+import { apiName } from "./apiName";
 export const store = configureStore({
     reducer: {
         exercisesReducer,
-        [api.reducerPath]: api.reducer
+        [apiAll.reducerPath]: apiAll.reducer,
+        [apiName.reducerPath]: apiName.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(api.middleware)
+        getDefaultMiddleware().concat(apiName.middleware).concat(apiAll.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;

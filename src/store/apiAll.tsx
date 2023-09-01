@@ -2,9 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IExercise } from '../types';
 
 const url = 'https://exercisedb.p.rapidapi.com'; // /exercises/bodyPartList
-export const api = createApi({
+export const apiAll = createApi({
+    reducerPath: 'apiAll',
     baseQuery: fetchBaseQuery({
-        baseUrl: url, headers: {
+        baseUrl: url,
+        headers: {
             'X-RapidAPI-Key': '3b22504ff1mshee8d3ab7dbb395fp14e064jsnc409977ffdbe',
             'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
         }
@@ -20,6 +22,8 @@ export const api = createApi({
 
 });
 
-export const { useGetExercisesQuery, useGetExerciseByIDQuery } = api;
+
+
+export const { useGetExercisesQuery, useGetExerciseByIDQuery } = apiAll;
 
 

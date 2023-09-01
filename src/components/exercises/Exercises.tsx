@@ -1,7 +1,7 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import { useCustomDispatch, useCustomSelector } from '../../hooks'
-import { useGetExercisesQuery } from '../../store/api'
+import { useGetExercisesQuery } from '../../store/apiAll'
 import { filterByBodyPart, filterBySearch } from '../../utils/helpers'
 import { setExercises } from '../../store/slices/exersicesSlice'
 import { IExercise } from '../../types'

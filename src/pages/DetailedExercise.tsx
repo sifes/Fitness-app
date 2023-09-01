@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetExerciseByIDQuery } from '../store/api'
+import { useGetExerciseByIDQuery } from '../store/apiAll'
 import { NavLink } from 'react-router-dom'
 import { PATH } from '../utils/constants'
 
@@ -12,6 +12,7 @@ const DetailedExercise: React.FC<IDetailedExercise> = () => {
 
     if (isLoading || !data) return <div>Loading...</div>
     if (error) return <div>Error occured</div>
+
     return (
         <div className='container'>
             <div className='detailed-exercise'></div>

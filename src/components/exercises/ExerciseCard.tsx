@@ -1,7 +1,6 @@
 import React from 'react'
 import { IExercise } from '../../types';
 import { NavLink } from 'react-router-dom';
-import { PATH } from '../../utils/constants';
 
 const ExerciseCard: React.FC<IExercise> = ({ bodyPart, equipment, id, gifUrl, name, target }) => {
     return (
