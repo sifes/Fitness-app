@@ -2,31 +2,33 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import { useExercisesSelector } from '../../hooks/store'
 import { useGetExercisesQuery } from '../../store/api'
-import { filterByBodyPart, filterBySearch } from '../../utils/helpers'
-import { IExercise } from '../../types'
 import ExerciseCard from './ExerciseCard'
 import { ExercisesNotFound } from './ExercisesNotFound'
+import { Pagination } from '../Pagination'
+import { IExercise } from '../../types'
 import { useActions } from '../../hooks/useActions'
+import { filterByBodyPart, filterBySearch } from '../../utils/helpers'
 
 
 interface IExercises { }
 
 const Exercises: React.FC<IExercises> = () => {
-    const { setExercises } = useActions()
-
-    const { selectedOptions, searchValue, exercises } = useExercisesSelector()
+    const { selectedOptions, searchValue, exercises, pages } = useExercisesSelector()
     const { data, error, isLoading } = useGetExercisesQuery(``)
+    const { setExercises, setTotalPagesCount } = useActions()
 
-    function helper(ExercisesData: IExercise[]) {
+    function setData(ExercisesData: IExercise[]) {
         let Exercises = [...ExercisesData]
         Exercises = filterByBodyPart(Exercises, selectedOptions.bodyPart)
         Exercises = filterBySearch(Exercises, searchValue)
-        return setExercises(Exercises.splice(0, 6))
+        setTotalPagesCount(Math.ceil(Exercises.length / 6))
+        return setExercises(Exercises.splice(1 * pages.current, 6))
     }
-
     React.useEffect(() => {
-        !isLoading ? helper([...data || []]) : null
-    }, [data, searchValue, selectedOptions])
+        if (!isLoading && data?.length) {
+            setData([...data])
+        }
+    }, [data, searchValue, selectedOptions, pages.current])
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error occured</div>
@@ -34,10 +36,13 @@ const Exercises: React.FC<IExercises> = () => {
     return (
         <Element name='exercises' >
             {exercises.length ?
-                <div className="exercises__cards cards-exercises">
-                    {exercises.map(exerciseData => <ExerciseCard key={exerciseData.id} {...exerciseData} />)}
-                </div> :
-                <ExercisesNotFound />}
+                <>
+                    <Pagination />
+                    <div className="exercises__cards cards-exercises">
+                        {exercises.map(exerciseData => <ExerciseCard key={exerciseData.id} {...exerciseData} />)}
+                    </div>
+                </>
+                : <ExercisesNotFound />}
         </Element>
     )
 }

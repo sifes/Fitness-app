@@ -7,7 +7,11 @@ interface IState {
     selectedOptions: {
         [key: string]: string;
     },
-    searchValue: string
+    searchValue: string,
+    pages: {
+        totalCount: number,
+        current: number,
+    }
 }
 const initialState: IState = {
     exercises: [],
@@ -15,7 +19,11 @@ const initialState: IState = {
     selectedOptions: {
         bodyPart: ''
     },
-    searchValue: ''
+    searchValue: '',
+    pages: {
+        totalCount: 0,
+        current: 0,
+    }
 }
 const exercisesSlice = createSlice({
     name: 'exercises',
@@ -43,10 +51,15 @@ const exercisesSlice = createSlice({
         toggleIsBodyPartShown(state: IState) {
             state.isBodyPartsShown = !state.isBodyPartsShown
         },
+        setTotalPagesCount(state: IState, action: PayloadAction<number>) {
+            state.pages.totalCount = action.payload
+        },
+        setCurrentPagesCount(state: IState, action: PayloadAction<number>) {
+            state.pages.current = action.payload
+        },
     },
 });
 
-export const { onOptionClick, setSearchValue, setExercises, toggleIsBodyPartShown } = exercisesSlice.actions;
 export { exercisesSlice }
 
 
