@@ -1,3 +1,5 @@
+import { DataItem } from "../types";
+
 // constants, ENUMS
 export enum PATH {
     INDEX = '/',
@@ -29,4 +31,9 @@ export const sliderSettings = {
         },
     ],
 };
-export const BodyPartsData = ['back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist']
+export const OptionsData: DataItem[] = [
+    {
+        name: 'bodyPart',
+        data: ['back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist']
+    },
+]

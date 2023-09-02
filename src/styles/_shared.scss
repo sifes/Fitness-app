@@ -175,4 +175,26 @@ body {
 
 /* </--- Reveal ---/> */
 
+/* <--- hollow ---> */
+.hvr-hollow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px 1px rgba(228, 228, 228, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: background;
+    transition-property: background;
+    box-shadow: inset 0 0 0 1px #ffffff, 0 0 1px rgba(117, 117, 117, 0);
+}
+
+.hvr-hollow:hover,
+.hvr-hollow.hvr-hollow--active {
+    background: none;
+    color: white;
+}
+
+/* </--- hollow ---/> */
+
 // </------- ANIMATIONS/HOVER -------/> //

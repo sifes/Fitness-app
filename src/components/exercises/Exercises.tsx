@@ -1,20 +1,22 @@
 import React from 'react'
 import { Element } from 'react-scroll'
-import { useCustomDispatch, useCustomSelector } from '../../hooks'
+import { useExercisesSelector } from '../../hooks/store'
 import { useGetExercisesQuery } from '../../store/api'
 import { filterByBodyPart, filterBySearch } from '../../utils/helpers'
-import { setExercises } from '../../store/slices/exersicesSlice'
 import { IExercise } from '../../types'
 import ExerciseCard from './ExerciseCard'
 import { ExercisesNotFound } from './ExercisesNotFound'
+import { useActions } from '../../hooks/useActions'
 
 
 interface IExercises { }
 
 const Exercises: React.FC<IExercises> = () => {
-    const dispatch = useCustomDispatch()
-    const { selectedOptions, searchValue, exercises } = useCustomSelector(state => state.exercisesReducer)
-    const { data, error, isLoading } = useGetExercisesQuery(``)  // 
+    const { setExercises } = useActions()
+
+    const { selectedOptions, searchValue, exercises } = useExercisesSelector()
+    const { data, error, isLoading } = useGetExercisesQuery(``)
+
     function helper(ExercisesData: IExercise[]) {
         let Exercises = [...ExercisesData]
         Exercises = filterByBodyPart(Exercises, selectedOptions.bodyPart)
@@ -23,7 +25,7 @@ const Exercises: React.FC<IExercises> = () => {
     }
 
     React.useEffect(() => {
-        !isLoading ? dispatch(helper([...data || []])) : null
+        !isLoading ? helper([...data || []]) : null
     }, [data, searchValue, selectedOptions])
 
     if (isLoading) return <div>Loading...</div>

@@ -1,14 +1,13 @@
 import React from 'react'
-import { useCustomDispatch } from '../../hooks'
-import { setSearchValue } from '../../store/slices/exersicesSlice'
+import { useActions } from '../../hooks/useActions'
 
 interface IExercisesNotFound { }
 
 const ExercisesNotFound: React.FC<IExercisesNotFound> = () => {
-    const dispatch = useCustomDispatch()
+    const { setSearchValue } = useActions()
 
-    function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>) { // <========================== HERE YOU SHPULD WRITE TYPES Event<HTMLInputElement>
-        dispatch(setSearchValue(''))
+    function handleButtonClick() {
+        setSearchValue('')
     }
     return (
 

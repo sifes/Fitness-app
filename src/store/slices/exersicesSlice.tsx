@@ -5,7 +5,7 @@ interface IState {
     exercises: IExercise[],
     isBodyPartsShown: boolean
     selectedOptions: {
-        [key: string]: string; // Assuming the keys are strings and the values are strings
+        [key: string]: string;
     },
     searchValue: string
 }
@@ -47,7 +47,8 @@ const exercisesSlice = createSlice({
 });
 
 export const { onOptionClick, setSearchValue, setExercises, toggleIsBodyPartShown } = exercisesSlice.actions;
-export default exercisesSlice.reducer;
+export { exercisesSlice }
+
 
 
 

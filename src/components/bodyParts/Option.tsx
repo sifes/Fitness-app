@@ -1,13 +1,12 @@
 import React from 'react'
-import { onOptionClick } from '../../store/slices/exersicesSlice'
-import { useCustomDispatch } from '../../hooks'
+import { useActions } from '../../hooks/useActions'
 
 const Option: React.FC<{ title: string, name: string, currentValue: string }> = ({ title, name, currentValue }) => {
-    const dispatch = useCustomDispatch()
-    function handleClick() {
-        dispatch(onOptionClick({ title, name }))
-    }
+    const { onOptionClick } = useActions()
 
+    function handleClick() {
+        onOptionClick({ title, name })
+    }
     return (
         <article onClick={handleClick} className={`body-part hvr-fade ${currentValue === title ? 'hvr-fade--active' : ''}`}>
             <h3>{title}</h3>

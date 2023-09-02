@@ -1,26 +1,19 @@
 import React from 'react'
 import Slider from "react-slick";
-
-import { BodyPartsData, sliderSettings } from '../../utils/constants';
-import { useCustomDispatch, useCustomSelector } from '../../hooks';
-import { toggleIsBodyPartShown } from '../../store/slices/exersicesSlice';
-import { DataItem } from '../../types';
+import { OptionsData, sliderSettings } from '../../utils/constants';
+import { useExercisesSelector } from '../../hooks/store';
 import { Option } from './Option';
+import { useActions } from '../../hooks/useActions';
 
 
 const Options: React.FC = () => {
-  const { isBodyPartsShown, selectedOptions } = useCustomSelector(state => state.exercisesReducer)
-  const dispatch = useCustomDispatch()
+  const { isBodyPartsShown, selectedOptions } = useExercisesSelector()
+  const { toggleIsBodyPartShown } = useActions()
+
   function handleButtonClick() {
-    dispatch(toggleIsBodyPartShown())
+    toggleIsBodyPartShown()
   }
 
-  const OptionsData: DataItem[] = [
-    {
-      name: 'bodyPart',
-      data: ['back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist']
-    },
-  ]
   return (
     <div className="body-parts">
       <div className="body-parts__header">
@@ -29,9 +22,6 @@ const Options: React.FC = () => {
       </div>
       {
         isBodyPartsShown &&
-        // <Slider {...sliderSettings}>
-        //   {BodyPartsData?.map(bodyPart => <BodyPart key={bodyPart} title={bodyPart} />)}
-        // </Slider>
         OptionsData.map((option) =>
           <Slider key={option.name} {...sliderSettings}>
             {option.data?.map(optionItem => <Option key={optionItem} name={option.name} title={optionItem} currentValue={selectedOptions[option.name]} />)}
