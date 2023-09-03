@@ -2,11 +2,17 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
+    font-size: 24px;
+    gap: 4px;
 
     .page {
         color: rgba(255, 255, 255, 0.8);
         cursor: pointer;
-        margin: 0 6px;
+        padding: 0 8px;
+    }
+
+    .active {
+        color: rgba(255, 255, 255);
     }
 
     .previous,
@@ -27,19 +33,11 @@
         margin: 0 auto 0 0;
     }
 
-    .active {
-        color: rgba(255, 255, 255);
-        margin: 0 10px;
-    }
+    @media (max-width: 480px) {
 
-    @media (max-width: 767px) {
-        li {
-            margin: 0 4px;
-        }
-
-        .active {
-            color: rgba(255, 255, 255);
-            margin: 0 8px;
+        .previous,
+        .next {
+            display: none; // was trying to save it and make it by grid but it actually dont make any sense 
         }
     }
 }

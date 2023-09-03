@@ -1,6 +1,11 @@
 .home {
     position: relative;
 
+    @media (max-width: 600px) {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+    }
+
     &__new {
         max-width: fit-content;
         display: flex;
@@ -70,14 +75,10 @@
 
     &__bg {
         position: absolute;
-        top: 0;
-        right: 0;
-        max-width: 80%;
-        max-height: 1000px;
+        top: 25%;
+        right: 0px;
+        max-width: 100%px;
+        max-height: 500px;
         z-index: -1;
-
-        @media (max-width: 600px) {
-            top: 10%;
-        }
     }
 }
