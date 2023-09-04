@@ -27,18 +27,17 @@
             max-height: 100%;
             stroke: rgb(184, 45, 45);
 
-            .upper-legs,
-            .lower-legs,
-            .upper-arm,
-            .lower-arm,
-            .shoulder,
-            .neck,
-            .chest,
-            .back,
-            .abs {
-                &:hover {
-                    stroke: rgb(49, 25, 25);
-                }
+            g {
+                cursor: pointer;
+
+            }
+
+            .right {
+                transform: translate(180deg);
+            }
+
+            .hovered {
+                stroke: rgb(49, 25, 25);
             }
 
 

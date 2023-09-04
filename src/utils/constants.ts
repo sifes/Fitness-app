@@ -5,6 +5,10 @@ export enum PATH {
     INDEX = '/',
     EXERCISES = '/exercises',
 }
+export enum BODY {
+    LOWERLEGS = 'LOWERLEGS',
+    UPPERLEGS = 'UPPERLEGS',
+}
 export const sliderSettings = {
     infinite: true,
     speed: 500,

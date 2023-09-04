@@ -17,7 +17,6 @@ const Home: React.FC = () => {
                 </div>
             </div>
             <img className='home__bg' src="../../../src/assets/gym-bg.jpg" alt="" />
-            <Body />
         </div>
 
 
