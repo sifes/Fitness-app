@@ -29,20 +29,19 @@
 
             g {
                 cursor: pointer;
-
+                fill: rgba(216, 216, 216, 0);
+                opacity: 1;
+                transition: all 0.1s ease-in;
             }
 
             .right {
                 transform: translate(180deg);
             }
 
-            .hovered {
-                stroke: rgb(49, 25, 25);
+            g.hovered {
+                opacity: 0.5;
             }
-
-
         }
-
 
     }
 

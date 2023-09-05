@@ -6,8 +6,15 @@ export enum PATH {
     EXERCISES = '/exercises',
 }
 export enum BODY {
-    LOWERLEGS = 'LOWERLEGS',
-    UPPERLEGS = 'UPPERLEGS',
+    LOWER_LEGS = 'LOWERLEGS',
+    UPPER_LEGS = 'UPPERLEGS',
+    CHEST = 'CHEST',
+    NECK = 'NECK',
+    BACK = 'BACK',
+    ABS = 'ABS',
+    SHOULDERS = 'SHOULDERS',
+    LOWER_ARMS = 'LOWER_ARMS',
+    UPPER_ARMS = 'UPPER_ARMS',
 }
 export const sliderSettings = {
     infinite: true,
