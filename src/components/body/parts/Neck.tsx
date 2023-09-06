@@ -1,7 +1,7 @@
 import React from 'react'
-import { useActions } from '../../hooks/useActions'
-import { useCustomSelector } from '../../hooks/store'
-import { BODY } from '../../utils/constants'
+import { useCustomSelector } from '../../../hooks/store'
+import { useActions } from '../../../hooks/useActions'
+import { BODY } from '../../../utils/constants'
 
 interface INeck { right?: boolean | undefined, back?: boolean | undefined }
 const Neck: React.FC<INeck> = ({ right, back }) => {
@@ -18,10 +18,10 @@ const Neck: React.FC<INeck> = ({ right, back }) => {
     )
 }
 const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { neckIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={neckIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.NECK)} onMouseLeave={() => setIsHovered(BODY.NECK)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
+        <g className={HoveredBody === BODY.NECK ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.NECK)} onMouseLeave={() => setIsHovered(null)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
             <title>neck</title>
             <path d="M -2457.358 237.777 C -2456.809 237.694 -2453.759 239.184 -2451.827 241.213 C -2451.827 241.213 -2449.747 242.357 -2452.659 251.559 C -2455.571 260.761 -2457.41 237.777 -2457.358 237.777 Z" />
             <polygon style={{ fill: 'rgb(147, 51, 51)', fillOpacity: 0, strokeOpacity: 0, stroke: 'rgb(127, 49, 49)' }} points="-2488.42 286.189 -2485.769 289.922 -2446.434 286.388 -2447.25 224.219 -2475.54 230.358 -2476.135 239.639 -2474.411 252.078">
@@ -34,10 +34,10 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
 }
 
 const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { neckIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={neckIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.NECK)} onMouseLeave={() => setIsHovered(BODY.NECK)}>
+        <g className={HoveredBody === BODY.NECK ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.NECK)} onMouseLeave={() => setIsHovered(null)}>
             <title>neck</title>
             <path d="M -2090.533 318.672 C -2090.533 318.672 -2101.027 351.093 -2101.568 351.228 C -2102.109 351.363 -2090.533 337.757 -2089.315 332.884 C -2088.097 328.011 -2090.398 318.131 -2090.533 318.672 Z" />
             <polygon style={{ strokeOpacity: 0, fillOpacity: 0, fill: 'rgb(144, 144, 144)', stroke: 'rgb(136, 58, 58)' }} points="-2103.085 351.868 -2069.617 337.93 -2069.797 308.898 -2104.85 318.011">

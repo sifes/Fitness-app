@@ -1,7 +1,7 @@
 import React from 'react'
-import { useActions } from '../../hooks/useActions'
-import { useCustomSelector } from '../../hooks/store'
-import { BODY } from '../../utils/constants'
+import { useCustomSelector } from '../../../hooks/store'
+import { useActions } from '../../../hooks/useActions'
+import { BODY } from '../../../utils/constants'
 
 interface IBack { right?: boolean | undefined, back?: boolean | undefined }
 const Back: React.FC<IBack> = ({ right, back }) => {
@@ -19,10 +19,10 @@ const Back: React.FC<IBack> = ({ right, back }) => {
     // idea was to set shared <g></g>, their classes and state and change only front and back pathes, but that doesnt work. dont know why. need to figure out this later
 }
 const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { backIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={backIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.BACK)} onMouseLeave={() => setIsHovered(BODY.BACK)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
+        <g className={HoveredBody === BODY.BACK ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.BACK)} onMouseLeave={() => setIsHovered(null)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
             <title>back</title>
             <path d="M -2475.752 252.321 C -2477.071 256.773 -2504.842 278.785 -2513.548 278.293 C -2522.254 277.801 -2513.846 278.29 -2514.092 278.293 C -2514.092 278.293 -2494.653 285.576 -2493.701 285.338 C -2492.749 285.1 -2489.798 286.846 -2488.449 283.353 C -2487.1 279.86 -2475.12 251.76 -2475.752 252.321 Z" />
             <polygon style={{ fill: 'rgb(147, 51, 51)', fillOpacity: 0, strokeOpacity: 0, stroke: 'rgb(127, 49, 49)' }} points="-2531.888 332.079 -2533.12 385.658 -2523.139 426.745 -2519.524 426.71 -2521.725 358.065">
@@ -33,10 +33,10 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
 }
 
 const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { backIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={backIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.BACK)} onMouseLeave={() => setIsHovered(BODY.BACK)}>
+        <g className={HoveredBody === BODY.BACK ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.BACK)} onMouseLeave={() => setIsHovered(null)}>
             <title>back</title>
             <path d="M -2145.054 372.539 C -2147.985 371.318 -2119.236 357.618 -2104.761 355.772 C -2090.286 353.926 -2080.909 316.35 -2080.572 313.467 C -2080.235 310.584 -2077.998 313.538 -2077.998 313.538 C -2078.234 312.988 -2076.919 501.201 -2075.81 512.757 C -2074.701 524.313 -2081.483 506.013 -2081.544 505.921 C -2081.544 505.921 -2102.127 457.076 -2107.454 454.637 C -2112.781 452.198 -2126.003 395.404 -2124.283 394.831 C -2122.563 394.258 -2146.706 372.999 -2145.054 372.539 Z" />
             <path d="M -2164.614 410.437 C -2164.614 410.437 -2156.924 419.143 -2157.179 422.321 C -2157.434 425.499 -2158.45 424.863 -2160.356 421.876 C -2162.262 418.889 -2166.585 417.745 -2166.648 417.618 C -2166.711 417.491 -2169.445 410.373 -2164.614 410.437 Z" />

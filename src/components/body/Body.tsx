@@ -1,13 +1,14 @@
 import React from 'react'
-import { LowerLegs } from './LowerLegs'
-import { UpperLegs } from './UpperLegs'
-import { Back } from './Back'
-import { Abs } from './Abs'
-import { Chest } from './Chest'
-import { Neck } from './Neck'
-import { Shoulders } from './Shoulders'
-import { LowerArms } from './LowerArms'
-import { UpperArms } from './UpperArms'
+import { UpperArms } from './parts/UpperArms'
+import { LowerArms } from './parts/LowerArms'
+import { Shoulders } from './parts/Shoulders'
+import { Neck } from './parts/Neck'
+import { Chest } from './parts/Chest'
+import { Abs } from './parts/Abs'
+import { Back } from './parts/Back'
+import { UpperLegs } from './parts/UpperLegs'
+import { LowerLegs } from './parts/LowerLegs'
+
 
 interface IBody { }
 

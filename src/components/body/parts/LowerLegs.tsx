@@ -1,7 +1,7 @@
 import React from 'react'
-import { useActions } from '../../hooks/useActions'
-import { useCustomSelector } from '../../hooks/store'
-import { BODY } from '../../utils/constants'
+import { useCustomSelector } from '../../../hooks/store'
+import { useActions } from '../../../hooks/useActions'
+import { BODY } from '../../../utils/constants'
 
 interface ILowerLegs { right?: boolean | undefined, back?: boolean | undefined }
 const LowerLegs: React.FC<ILowerLegs> = ({ right, back }) => {
@@ -19,10 +19,10 @@ const LowerLegs: React.FC<ILowerLegs> = ({ right, back }) => {
     // idea was to set shared <g></g>, their classes and state and change only front and back pathes, but that doesnt work. dont know why. need to figure out this later
 }
 const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { lowerLegsIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={lowerLegsIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_LEGS)} onMouseLeave={() => setIsHovered(BODY.LOWER_LEGS)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
+        <g className={HoveredBody === BODY.LOWER_LEGS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_LEGS)} onMouseLeave={() => setIsHovered(null)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
             <title>lower legs</title>
             <path d="M -2520.811 763.824 L -2524.772 759.077 L -2528.087 777.37 L -2528.255 819.839 L -2534.026 839.36 C -2534.026 839.36 -2536.579 862.523 -2535.72 863.996 C -2534.861 865.469 -2515.889 968.175 -2516.873 970.029 C -2517.857 971.883 -2518.179 989.024 -2518.179 989.024 C -2518.179 989.024 -2522.162 1001.867 -2522.075 1001.867 C -2521.988 1001.867 -2519.295 1010.066 -2519.295 1010.066 L -2519.292 1018.529 C -2519.292 1018.529 -2530.224 1038.146 -2534.822 1040.496 C -2539.42 1042.846 -2536.15 1055.413 -2536.048 1055.311 C -2535.946 1055.209 -2531.655 1057.354 -2529.305 1054.596 C -2526.955 1051.838 -2523.992 1055.719 -2523.992 1055.719 C -2523.992 1055.719 -2520.416 1051.633 -2516.942 1055.924" />
             <path d="M -2516.718 1055.975 C -2516.718 1055.975 -2510.992 1052.075 -2506.546 1056.066" />
@@ -38,10 +38,10 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
 }
 
 const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { lowerLegsIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={lowerLegsIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_LEGS)} onMouseLeave={() => setIsHovered(BODY.LOWER_LEGS)}>
+        <g className={HoveredBody === BODY.LOWER_LEGS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_LEGS)} onMouseLeave={() => setIsHovered(null)}>
             <title>lower legs</title>
             <path d="M -2152.967 903.499 C -2152.967 903.499 -2141.893 887.259 -2141.524 887.074 C -2141.155 886.889 -2132.112 891.319 -2130.451 905.345 C -2128.79 919.371 -2131.401 959.805 -2131.005 973.685 C -2130.007 985.67 -2140.714 1016.344 -2147.989 1010.301 C -2155.264 1004.258 -2159.901 967.383 -2159.901 967.383 C -2160.065 967.465 -2159.612 935.324 -2158.77 934.903 L -2152.967 903.499 Z" />
             <path d="M -2109.6 1019.383 C -2109.6 1019.383 -2100.718 991.496 -2100.925 990.463 C -2101.132 989.43 -2108.568 920.231 -2108.568 919.818 C -2108.568 919.405 -2121.375 897.303 -2123.647 898.955 C -2125.919 900.607 -2127.571 909.49 -2127.571 909.49 C -2127.571 909.49 -2126.126 939.442 -2126.539 939.855 C -2126.952 940.268 -2128.191 952.042 -2128.191 952.042 C -2128.191 952.042 -2127.365 965.882 -2127.365 966.089 C -2127.365 966.296 -2128.604 988.604 -2128.604 989.018 C -2128.604 989.432 -2130.876 1005.129 -2127.571 1005.129 C -2124.266 1005.129 -2126.332 1014.218 -2109.6 1019.383 Z" />

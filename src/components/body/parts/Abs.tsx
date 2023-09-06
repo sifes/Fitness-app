@@ -1,7 +1,7 @@
 import React from 'react'
-import { useActions } from '../../hooks/useActions'
-import { useCustomSelector } from '../../hooks/store'
-import { BODY } from '../../utils/constants'
+import { useActions } from '../../../hooks/useActions'
+import { useCustomSelector } from '../../../hooks/store'
+import { BODY } from '../../../utils/constants'
 
 interface IAbs { right?: boolean | undefined, back?: boolean | undefined }
 const Abs: React.FC<IAbs> = ({ right, back }) => {
@@ -19,10 +19,10 @@ const Abs: React.FC<IAbs> = ({ right, back }) => {
     // idea was to set shared <g></g>, their classes and state and change only front and back pathes, but that doesnt work. dont know why. need to figure out this later
 }
 const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { absIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={absIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.ABS)} onMouseLeave={() => setIsHovered(BODY.ABS)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
+        <g className={HoveredBody === BODY.ABS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.ABS)} onMouseLeave={() => setIsHovered(null)} transform="matrix(1, 0, 0, 1, 189.333545, -1043.51735)">
             <title>abs</title>
             <path d="M -2487.029 425.688 C -2487.878 426.424 -2492.9 393.568 -2484.345 386.153 C -2484.345 386.153 -2480.321 383.05 -2475.324 383.356 C -2470.327 383.662 -2456.893 379.842 -2457.163 379.824 C -2457.163 379.824 -2453.204 377.711 -2450.298 390.119 C -2447.392 402.527 -2450.298 405.545 -2450.298 405.545 C -2450.298 405.545 -2484.974 426.784 -2485.085 426.784 C -2485.196 426.784 -2487.433 425.89 -2487.029 425.688 Z" />
             <polygon style={{ fill: 'rgb(147, 51, 51)', fillOpacity: 0, strokeOpacity: 0, stroke: 'rgb(127, 49, 49)' }} points="-2523.682 523.436 -2447.1 595.919 -2446.832 377.65 -2452.066 374.94 -2457.089 376.347 -2473.956 381.905 -2497.311 379.873 -2511.998 372.633 -2520.495 360.086 -2517.442 402.176">
@@ -41,10 +41,10 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
 }
 
 const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { absIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={absIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.ABS)} onMouseLeave={() => setIsHovered(BODY.ABS)}>
+        <g className={HoveredBody === BODY.ABS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.ABS)} onMouseLeave={() => setIsHovered(null)}>
             <title>abs</title>
             <path d="M -2145.889 572.88 C -2145.889 572.88 -2136.28 567.607 -2140.791 561.63 C -2145.302 555.653 -2145.889 572.821 -2145.889 572.88 Z" />
             <polygon style={{ strokeOpacity: 0, fillOpacity: 0, fill: 'rgb(144, 144, 144)', stroke: 'rgb(136, 58, 58)' }} points="-2144.178 552.659 -2116.568 612.085 -2153.74 611.355">

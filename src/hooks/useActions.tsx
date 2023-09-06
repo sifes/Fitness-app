@@ -2,11 +2,11 @@ import React from 'react'
 import { useCustomDispatch } from "./store"
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { exercisesSlice } from "../store/slices/exersicesSlice";
-import { bodySlice } from "../store/slices/bodySlice";
+import { optionsSlice } from "../store/slices/optionsSlice";
 
 const rootActions = {
     ...exercisesSlice.actions,
-    ...bodySlice.actions
+    ...optionsSlice.actions
 }
 
 export const useActions = () => {

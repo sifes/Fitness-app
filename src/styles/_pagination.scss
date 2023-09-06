@@ -5,20 +5,26 @@
     font-size: 24px;
     gap: 4px;
 
+    li {
+        cursor: pointer;
+    }
+
     .page {
         color: rgba(255, 255, 255, 0.8);
-        cursor: pointer;
-        padding: 0 8px;
+
+        a {
+            padding: 0 8px;
+        }
     }
 
     .active {
         color: rgba(255, 255, 255);
     }
 
+
     .previous,
     .next {
         color: rgba(255, 255, 255);
-        cursor: pointer;
 
         &.disabled {
             color: rgba(255, 255, 255, 0.3);

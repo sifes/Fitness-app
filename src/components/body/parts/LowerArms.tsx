@@ -1,7 +1,7 @@
 import React from 'react'
-import { useActions } from '../../hooks/useActions'
-import { useCustomSelector } from '../../hooks/store'
-import { BODY } from '../../utils/constants'
+import { useCustomSelector } from '../../../hooks/store'
+import { useActions } from '../../../hooks/useActions'
+import { BODY } from '../../../utils/constants'
 
 interface ILowerArms { right?: boolean | undefined, back?: boolean | undefined }
 const LowerArms: React.FC<ILowerArms> = ({ right, back }) => {
@@ -18,10 +18,10 @@ const LowerArms: React.FC<ILowerArms> = ({ right, back }) => {
     )
 }
 const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { lowerArmsIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={lowerArmsIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(BODY.LOWER_ARMS)} transform="matrix(0.995057, 0, 0, 0.994516, -1309.265635, -1128.356698)">
+        <g className={HoveredBody === BODY.LOWER_ARMS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(null)} transform="matrix(0.995057, 0, 0, 0.994516, -1309.265635, -1128.356698)">
             <title>lower arms</title>
             <polygon style={{ fill: 'rgb(216, 216, 216)', stroke: 'rgb(0, 0, 0)', strokeOpacity: 0, paintOrder: 'stroke', fillRule: 'evenodd', fillOpacity: 0 }} points="-1087.624 508.35 -1082.244 537.053 -1069.311 535.116 -1057.891 564.778 -1080.292 624.947 -1090.513 664.102 -1083.951 690.789 -1103.889 747.541 -1127.486 766.575 -1140.988 747.636 -1139.474 670.446 -1128.748 656.89 -1114.741 605.52 -1112.217 552.572">
             </polygon>
@@ -37,10 +37,10 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
 }
 
 const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { lowerArmsIsHovered } = useCustomSelector(state => state.bodyReducer)
+    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
     const { setIsHovered } = useActions()
     return (
-        <g className={lowerArmsIsHovered ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(BODY.LOWER_ARMS)}>
+        <g className={HoveredBody === BODY.LOWER_ARMS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(null)}>
             <title>lower arms</title>
             <path d="M -2175.207 546.622 C -2175.207 546.622 -2176.782 537.819 -2178.229 544.784 C -2179.676 551.749 -2186.913 553.468 -2186.913 553.468 C -2186.913 553.468 -2189.536 559.167 -2186.641 560.524 C -2183.746 561.881 -2178.862 570.746 -2178.862 570.746" />
             <path d="M -2213.291 533.438 C -2213.291 533.438 -2208.045 553.881 -2203.16 556.414 C -2198.275 558.947 -2207.21 576.677 -2207.21 576.405 C -2207.21 576.133 -2212.477 565.912 -2212.025 563.108 C -2211.573 560.304 -2214.648 547.278 -2216.638 546.825 C -2218.628 546.372 -2213.291 533.438 -2213.291 533.438 Z" />
