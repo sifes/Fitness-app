@@ -1,13 +1,13 @@
 import React from 'react'
 import Slider from "react-slick";
-import { OptionsData, sliderSettings } from '../../utils/constants';
-import { useExercisesSelector } from '../../hooks/store';
+import { useExercisesSelector, useOptionsSelector } from '../../hooks/store';
 import { Option } from './Option';
 import { useActions } from '../../hooks/useActions';
-
+import { OptionsData, sliderSettings } from '../../utils/constants';
+import OptionsSelect from '../CustomSelect';
 
 const Options: React.FC = () => {
-  const { isBodyPartsShown, selectedOptions } = useExercisesSelector()
+  const { isOptionsShown, HoveredBody, selectedOptions } = useOptionsSelector()
   const { toggleIsBodyPartShown } = useActions()
 
   function handleButtonClick() {
@@ -21,12 +21,17 @@ const Options: React.FC = () => {
         <button type='button' className='hvr-reveal' onClick={handleButtonClick}>See Options</button>
       </div>
       {
-        isBodyPartsShown &&
-        OptionsData.map((option) =>
-          <Slider key={option.name} {...sliderSettings}>
-            {option.data?.map(optionItem => <Option key={optionItem} name={option.name} title={optionItem} currentValue={selectedOptions[option.name]} />)}
-          </Slider>
-        )
+        isOptionsShown &&
+        <>
+          <OptionsSelect />
+
+          {OptionsData.map((option) => // if i want to add more options
+            <Slider key={option.name} {...sliderSettings}>
+              {option.data?.map(optionItem => <Option key={optionItem} name={option.name} title={optionItem} currentValue={selectedOptions[option.name]} />)}
+            </Slider>
+          )}
+
+        </>
       }
     </div>
   )

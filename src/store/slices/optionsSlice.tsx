@@ -3,14 +3,14 @@ import { BODY } from '../../utils/constants';
 
 interface IState {
     HoveredBody: BODY | null
-    isBodyPartsShown: boolean
+    isOptionsShown: boolean
     selectedOptions: {
         [key: string]: string;
     },
 }
 const initialState: IState = {
     HoveredBody: null,
-    isBodyPartsShown: false,
+    isOptionsShown: false,
     selectedOptions: {
         bodyPart: ''
     },
@@ -36,7 +36,7 @@ const optionsSlice = createSlice({
             }
         },
         toggleIsBodyPartShown(state: IState) {
-            state.isBodyPartsShown = !state.isBodyPartsShown
+            state.isOptionsShown = !state.isOptionsShown
         },
     },
 },

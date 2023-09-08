@@ -18,9 +18,8 @@ const Body: React.FC<IBody> = () => {
             <div className='body-front'>
                 <div className='body__content'>
                     <svg viewBox="-1684.735 -135.726 414.973 826.167" xmlns="http://www.w3.org/2000/svg" >
-                        <g transform="matrix(1, 0, 0, 1, 781.1126156830237, 677.4330494808631)">
+                        <g transform="matrix(1, 0, 0, 1, 780, 677)">
                             <title>front-left</title>
-
                             <UpperArms />
                             <LowerArms />
                             <Shoulders />
@@ -31,7 +30,7 @@ const Body: React.FC<IBody> = () => {
                             <UpperLegs />
                             <LowerLegs />
                         </g>
-                        <g transform="matrix(-1, 0, 0, 1, -3735.6086704105783, 677.4330494808631)" >
+                        <g transform="matrix(-1, 0, 0, 1, -3735, 677)" >
                             <title>front-right</title>
                             <UpperArms right />
                             <LowerArms right />
@@ -49,7 +48,7 @@ const Body: React.FC<IBody> = () => {
             <div className='body-back'>
                 <div className='body__content'>
                     <svg viewBox="-1250.353 -150.496 414.973 840.937" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="matrix(1, 0, 0, 1, 1030.6713943978507, -462.7003208301985)">
+                        <g transform="matrix(1, 0, 0, 1, 1030, -462)">
                             <title>back-left</title>
                             <UpperArms back />
                             <LowerArms back />
@@ -60,7 +59,7 @@ const Body: React.FC<IBody> = () => {
                             <UpperLegs back />
                             <LowerLegs back />
                         </g>
-                        <g transform="matrix(-1, 0, 0, 1, -3109.6296618404212, -462.7003208301985)" style={{}}>
+                        <g transform="matrix(-1, 0, 0, 1, -3109, -462)" style={{}}>
                             <title>back-right</title>
                             <UpperArms back right />
                             <LowerArms back right />
