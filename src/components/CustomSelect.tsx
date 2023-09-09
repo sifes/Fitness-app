@@ -2,9 +2,10 @@ import React from 'react'
 import { IOption } from '../types';
 import Select, { GroupBase, OptionProps, StylesConfig } from 'react-select';
 import { equipment } from '../utils/constants';
+import { useActions } from '../hooks/useActions';
 
 
-const CustomOption: React.FC<OptionProps<IOption>> = ({ innerProps, label, data }) => {
+const CustomOption: React.FC<OptionProps<IOption>> = ({ innerProps, label }) => {
     return (
         <div className='select-option' {...innerProps}>
             <span>{label}</span>
@@ -12,15 +13,14 @@ const CustomOption: React.FC<OptionProps<IOption>> = ({ innerProps, label, data 
     );
 };
 const OptionsSelect: React.FC = () => {
+    const { setEquipment } = useActions()
 
-    function handleChange() {
-
-    }
     const customStyles: StylesConfig<any, boolean, GroupBase<IOption>> = {
         control: (base) => ({
             ...base,
             backgroundColor: 'black',
             color: 'white',
+            maxWidth: '600px',
         }),
         singleValue: (base) => ({
             ...base,
@@ -30,7 +30,7 @@ const OptionsSelect: React.FC = () => {
             ...base,
             backgroundColor: 'black',
             color: 'white',
-            padding: '16px'
+            padding: '16px',
         }),
         input: (base) => ({
             ...base,
@@ -39,14 +39,18 @@ const OptionsSelect: React.FC = () => {
 
     };
     return (
-        <Select
+        <Select className='options__select'
             options={equipment}
             components={{
                 Option: CustomOption,
             }}
             styles={customStyles}
-            onChange={handleChange}
-        // value={value}
+            onChange={(newValue) => {
+                if (newValue) setEquipment(newValue.value)
+                else setEquipment('')
+            }}
+            isClearable
+            placeholder={'equipment'}
         />
     )
 }

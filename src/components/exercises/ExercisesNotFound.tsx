@@ -4,10 +4,12 @@ import { useActions } from '../../hooks/useActions'
 interface IExercisesNotFound { }
 
 const ExercisesNotFound: React.FC<IExercisesNotFound> = () => {
-    const { setSearchValue } = useActions()
+    const { setSearchValue, setEquipment, setOptions } = useActions()
 
     function handleButtonClick() {
         setSearchValue('')
+        setEquipment('')
+        setOptions({ title: '', name: 'bodyPart' })
     }
     return (
 

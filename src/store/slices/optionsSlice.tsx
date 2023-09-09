@@ -5,14 +5,15 @@ interface IState {
     HoveredBody: BODY | null
     isOptionsShown: boolean
     selectedOptions: {
-        [key: string]: string;
+        [key: string]: string; // because i need it for slider value
     },
 }
 const initialState: IState = {
     HoveredBody: null,
     isOptionsShown: false,
     selectedOptions: {
-        bodyPart: ''
+        bodyPart: '',
+        equipment: ''
     },
 }
 const optionsSlice = createSlice({
@@ -22,7 +23,7 @@ const optionsSlice = createSlice({
         setIsHovered(state: IState, action: PayloadAction<BODY | null>) {
             state.HoveredBody = action.payload
         },
-        onOptionClick(state: IState, action: PayloadAction<{ title: string, name: keyof typeof state.selectedOptions }>) {
+        setOptions(state: IState, action: PayloadAction<{ title: string, name: keyof typeof state.selectedOptions }>) {
             switch (action.payload.name) {
                 case 'bodyPart':
                     if (state.selectedOptions.bodyPart === action.payload.title) {
@@ -34,6 +35,9 @@ const optionsSlice = createSlice({
                 default:
                     return state
             }
+        },
+        setEquipment(state: IState, action: PayloadAction<string>) {
+            state.selectedOptions.equipment = action.payload
         },
         toggleIsBodyPartShown(state: IState) {
             state.isOptionsShown = !state.isOptionsShown

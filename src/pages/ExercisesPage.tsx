@@ -2,7 +2,6 @@ import React from 'react'
 import Search from '../components/Search'
 import { Exercises } from '../components/exercises/Exercises'
 import { Options } from '../components/options/Options'
-import { Body } from '../components/body/Body'
 
 const ExercisesPage: React.FC = () => {
     return (
@@ -12,7 +11,6 @@ const ExercisesPage: React.FC = () => {
                 <Search />
                 <Options />
                 <Exercises />
-                <Body />
             </div>
         </div>
     )

@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-scroll';
+import { Link as LinkScroll } from 'react-scroll';
 import { useActions } from '../hooks/useActions';
 
 const Search: React.FC = () => {
     const [inputValue, setinputValue] = React.useState<string>('') // this is a local state of input. it is for that user can see value, but it is actually wont search until he press enter or search button
     const { setSearchValue } = useActions()
+    const buttonRef = React.useRef<HTMLButtonElement | null>(null);
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         setinputValue(event.target.value)
@@ -12,7 +13,7 @@ const Search: React.FC = () => {
 
     function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter') {
-            setSearchValue(inputValue)
+            buttonRef.current?.click()
         }
     }
 
@@ -31,9 +32,9 @@ const Search: React.FC = () => {
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress}
             />
-            <Link to='exercises' smooth duration={500}>
-                <button className={`search__button hvr-hollow ${inputValue ? 'hvr-hollow--active' : ''}`} onClick={handleButtonCLick}>Search</button>
-            </Link>
+            <LinkScroll to='exercises' smooth duration={500}>
+                <button ref={buttonRef} className={`search__button hvr-hollow ${inputValue ? 'hvr-hollow--active' : ''}`} onClick={handleButtonCLick}>Search</button>
+            </LinkScroll>
         </div>
     )
 }
