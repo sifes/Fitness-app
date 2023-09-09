@@ -29,16 +29,22 @@
                 cursor: pointer;
                 fill: rgba(216, 216, 216, 0);
                 opacity: 1;
-                transition: all 0.1s ease-in;
+                transition: stroke .1s ease-in-out;
             }
 
             .right {
                 transform: translate(180deg);
             }
 
+            g.selected {
+                opacity: 0.6;
+                stroke: rgb(247, 161, 161);
+            }
+
             g.hovered {
                 opacity: 0.5;
             }
+
         }
 
     }

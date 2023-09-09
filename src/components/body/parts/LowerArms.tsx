@@ -6,24 +6,25 @@ import { BODY } from '../../../utils/constants'
 interface ILowerArms { right?: boolean | undefined, back?: boolean | undefined }
 
 const LowerArms: React.FC<ILowerArms> = ({ right, back }) => {
+    const { HoveredBody, selectedOptions } = useCustomSelector(state => state.optionsReducer)
+    const { setIsHovered, setOptions } = useActions()
+    let svgStyles = right ? 'right ' : ''
+    selectedOptions.bodyPart === BODY.LOWER_ARMS ? svgStyles += 'selected ' : ''
+    HoveredBody === BODY.LOWER_ARMS ? svgStyles += 'hovered ' : ''
     return (
-        <  >
-            {back ?
-                <BackSide right={right}
-                />
-                :
-                <FrontSide right={right}
-                />
-            }
-        </>
+        <g className={svgStyles} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(null)} onClick={() => setOptions({ name: 'bodyPart', value: BODY.LOWER_ARMS })}>
 
+            {back ?
+                <BackSide />
+                :
+                <FrontSide />
+            }
+        </g>
     )
 }
-const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
-    const { setIsHovered } = useActions()
+const FrontSide: React.FC = () => {
     return (
-        <g transform="matrix(0.995057, 0, 0, 0.994516, -1309.265635, -1128.356698)" className={HoveredBody === BODY.LOWER_ARMS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(null)}>
+        <g transform="matrix(0.995057, 0, 0, 0.994516, -1309.265635, -1128.356698)" >
             <title>lower arms</title>
             <polygon style={{ fill: 'rgb(216, 216, 216)', stroke: 'rgb(0, 0, 0)', strokeOpacity: 0, paintOrder: 'stroke', fillRule: 'evenodd', fillOpacity: 0 }} points="-1087.624 508.35 -1082.244 537.053 -1069.311 535.116 -1057.891 564.778 -1080.292 624.947 -1090.513 664.102 -1083.951 690.789 -1103.889 747.541 -1127.486 766.575 -1140.988 747.636 -1139.474 670.446 -1128.748 656.89 -1114.741 605.52 -1112.217 552.572">
             </polygon>
@@ -34,14 +35,13 @@ const FrontSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
             <path d="M -1131.978 750.56 C -1131.978 750.56 -1130.798 721.484 -1129.473 720.47" />
             <path d="M -1112.174 746.199 C -1112.174 746.199 -1107.421 722.03 -1106.33 722.03" />
             <path d="M -1079.787 536.89 C -1083.853 542.132 -1087.191 510.265 -1087.191 510.265 L -1089.073 513.335 C -1089.073 513.335 -1097.419 522.944 -1097.337 523.271 C -1097.255 523.598 -1104.374 536.636 -1104.21 537.004 C -1104.046 537.372 -1110.633 558.862 -1110.306 559.19 C -1109.979 559.518 -1112.28 610.203 -1112.525 610.571 C -1112.77 610.939 -1123.52 660.719 -1123.52 660.719 C -1123.52 660.719 -1137.992 669.003 -1137.787 669.412 C -1137.582 669.821 -1150.02 690.902 -1149.856 690.984 C -1149.692 691.066 -1162.584 705.94 -1162.584 705.94 C -1162.584 705.94 -1162.175 715.15 -1152.029 710.975 C -1141.883 706.8 -1141.352 700.905 -1141.352 700.905 C -1141.352 700.905 -1137.343 695.134 -1140.247 706.513 C -1143.151 717.892 -1141.018 735.264 -1140.665 741.979 C -1140.312 748.694 -1137.148 758.949 -1133.722 752.506 C -1132.837 750.841 -1131.975 750.047 -1131.975 750.047 C -1131.975 750.047 -1131.975 754.355 -1131.869 754.89 C -1131.837 755.396 -1129.891 768.424 -1126.163 763.207 C -1122.435 757.99 -1122.581 752.905 -1122.351 752.872 C -1122.967 750.384 -1118.603 769.011 -1114.88 757.236 C -1111.157 745.461 -1111.977 744.31 -1112.178 746.467 C -1112.178 746.467 -1108.164 750.48 -1105.075 747.022 C -1101.986 743.564 -1086.395 694.829 -1086.395 694.829 C -1086.395 694.829 -1086.879 680.959 -1087.593 680.959 C -1088.307 680.959 -1093.708 664.922 -1092.547 663.537 C -1091.386 662.152 -1077.768 615.773 -1077.813 615.505 C -1077.858 615.237 -1059.627 566.226 -1059.622 565.825 C -1059.617 565.424 -1064.459 525.31 -1079.7 537.044" />
-        </g>)
+        </g>// i hate fucking svg with its "transform" x6
+    )
 }
 
-const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
-    const { HoveredBody } = useCustomSelector(state => state.optionsReducer)
-    const { setIsHovered } = useActions()
+const BackSide: React.FC = () => {
     return (
-        <g className={HoveredBody === BODY.LOWER_ARMS ? right ? 'right hovered' : 'hovered' : ''} onMouseEnter={() => setIsHovered(BODY.LOWER_ARMS)} onMouseLeave={() => setIsHovered(null)}>
+        <>
             <title>lower arms</title>
             <path d="M -2175.207 546.622 C -2175.207 546.622 -2176.782 537.819 -2178.229 544.784 C -2179.676 551.749 -2186.913 553.468 -2186.913 553.468 C -2186.913 553.468 -2189.536 559.167 -2186.641 560.524 C -2183.746 561.881 -2178.862 570.746 -2178.862 570.746" />
             <path d="M -2213.291 533.438 C -2213.291 533.438 -2208.045 553.881 -2203.16 556.414 C -2198.275 558.947 -2207.21 576.677 -2207.21 576.405 C -2207.21 576.133 -2212.477 565.912 -2212.025 563.108 C -2211.573 560.304 -2214.648 547.278 -2216.638 546.825 C -2218.628 546.372 -2213.291 533.438 -2213.291 533.438 Z" />
@@ -54,7 +54,7 @@ const BackSide: React.FC<{ right: boolean | undefined }> = ({ right }) => {
             </polygon>
             <path d="M -2235.253 724.948 L -2240.962 762.292" />
             <path d="M -2229.43 750.239 L -2224.432 727.462" />
-        </g>
+        </>
     )
 }
 

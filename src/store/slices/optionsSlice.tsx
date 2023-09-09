@@ -23,13 +23,13 @@ const optionsSlice = createSlice({
         setIsHovered(state: IState, action: PayloadAction<BODY | null>) {
             state.HoveredBody = action.payload
         },
-        setOptions(state: IState, action: PayloadAction<{ title: string, name: keyof typeof state.selectedOptions }>) {
+        setOptions(state: IState, action: PayloadAction<{ value: string, name: keyof typeof state.selectedOptions }>) {
             switch (action.payload.name) {
                 case 'bodyPart':
-                    if (state.selectedOptions.bodyPart === action.payload.title) {
+                    if (state.selectedOptions.bodyPart === action.payload.value) {
                         state.selectedOptions.bodyPart = ''
                     } else {
-                        state.selectedOptions.bodyPart = action.payload.title
+                        state.selectedOptions.bodyPart = action.payload.value
                     }
                     break;
                 default:

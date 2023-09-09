@@ -11,7 +11,7 @@ export enum BODY {
     CHEST = 'chest',
     NECK = 'neck',
     BACK = 'back',
-    ABS = 'abs',
+    ABS = 'waist',
     SHOULDERS = 'shoulders',
     LOWER_ARMS = 'lower arms',
     UPPER_ARMS = 'upper arms',

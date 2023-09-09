@@ -17,7 +17,7 @@ const Body: React.FC<IBody> = () => {
         <div className='body-wrapper' >
             <div className='body-front'>
                 <div className='body__content'>
-                    <svg viewBox="-1684.735 -135.726 414.973 826.167" xmlns="http://www.w3.org/2000/svg" >
+                    <svg viewBox="-1684.735 -135.726 414.973 826.167" >
                         <g transform="matrix(1, 0, 0, 1, 780, 677)">
                             <title>front-left</title>
                             <UpperArms />
@@ -47,7 +47,7 @@ const Body: React.FC<IBody> = () => {
             </div>
             <div className='body-back'>
                 <div className='body__content'>
-                    <svg viewBox="-1250.353 -150.496 414.973 840.937" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="-1250.353 -150.496 414.973 840.937">
                         <g transform="matrix(1, 0, 0, 1, 1030, -462)">
                             <title>back-left</title>
                             <UpperArms back />
@@ -59,7 +59,7 @@ const Body: React.FC<IBody> = () => {
                             <UpperLegs back />
                             <LowerLegs back />
                         </g>
-                        <g transform="matrix(-1, 0, 0, 1, -3109, -462)" style={{}}>
+                        <g transform="matrix(-1, 0, 0, 1, -3109, -462)">
                             <title>back-right</title>
                             <UpperArms back right />
                             <LowerArms back right />

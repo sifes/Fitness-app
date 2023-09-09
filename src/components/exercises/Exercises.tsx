@@ -20,8 +20,7 @@ const Exercises: React.FC<IExercises> = () => {
 
     function setData(ExercisesData: IExercise[]) {
         let Exercises = [...ExercisesData]
-        // Exercises = filterByBodyPart(Exercises, selectedOptions.bodyPart)
-        console.log(Exercises);
+        Exercises = filterByBodyPart(Exercises, selectedOptions.bodyPart)
         Exercises = filterByEquipment(Exercises, selectedOptions.equipment)
         Exercises = filterBySearch(Exercises, searchValue)
         setTotalPagesCount(Math.ceil(Exercises.length / 6))
@@ -35,7 +34,6 @@ const Exercises: React.FC<IExercises> = () => {
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error occured</div>
-    console.log(searchValue);
     return (
         <Element name='exercises' >
             {exercises.length ?

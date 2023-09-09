@@ -9,7 +9,7 @@ const ExercisesNotFound: React.FC<IExercisesNotFound> = () => {
     function handleButtonClick() {
         setSearchValue('')
         setEquipment('')
-        setOptions({ title: '', name: 'bodyPart' })
+        setOptions({ value: '', name: 'bodyPart' })
     }
     return (
 

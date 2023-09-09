@@ -8,7 +8,7 @@ import OptionsSelect from '../CustomSelect';
 import { Body } from '../body/Body';
 
 const Options: React.FC = () => {
-  const { isOptionsShown, HoveredBody, selectedOptions } = useOptionsSelector()
+  const { isOptionsShown, selectedOptions } = useOptionsSelector()
   const { toggleIsBodyPartShown } = useActions()
 
   function handleButtonClick() {
@@ -35,7 +35,6 @@ const Options: React.FC = () => {
               </Slider>
             )}
           </div>
-
           <Body />
         </>
       }
