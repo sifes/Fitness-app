@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { PATH } from '../utils/constants'
-import { Body } from '../components/body/Body'
 const Home: React.FC = () => {
     return (
         <div className='container'>

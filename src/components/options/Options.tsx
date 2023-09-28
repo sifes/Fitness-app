@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from "react-slick";
-import { useExercisesSelector, useOptionsSelector } from '../../hooks/store';
+import { useOptionsSelector } from '../../hooks/store';
 import { Option } from './Option';
 import { useActions } from '../../hooks/useActions';
 import { OptionsData, sliderSettings } from '../../utils/constants';

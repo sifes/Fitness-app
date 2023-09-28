@@ -28,8 +28,6 @@
             g {
                 cursor: pointer;
                 fill: rgba(216, 216, 216, 0);
-                opacity: 1;
-                transition: stroke .1s ease-in-out;
             }
 
             .right {
@@ -42,7 +40,8 @@
             }
 
             g.hovered {
-                opacity: 0.5;
+                stroke: rgba(184, 45, 45, 0.6);
+
             }
 
         }
