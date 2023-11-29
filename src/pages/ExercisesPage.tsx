@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from '../components/Search'
+import Search from '../components/search/Search'
 import { Exercises } from '../components/exercises/Exercises'
 import { Options } from '../components/options/Options'
 

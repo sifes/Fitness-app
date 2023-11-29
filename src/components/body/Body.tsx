@@ -1,13 +1,13 @@
 import React from 'react'
-import { UpperArms } from './parts/UpperArms'
-import { LowerArms } from './parts/LowerArms'
-import { Shoulders } from './parts/Shoulders'
-import { Neck } from './parts/Neck'
-import { Chest } from './parts/Chest'
-import { Abs } from './parts/Abs'
-import { Back } from './parts/Back'
-import { UpperLegs } from './parts/UpperLegs'
-import { LowerLegs } from './parts/LowerLegs'
+import { UpperArms } from './parts-svg/UpperArms'
+import { LowerArms } from './parts-svg/LowerArms'
+import { Shoulders } from './parts-svg/Shoulders'
+import { Neck } from './parts-svg/Neck'
+import { Chest } from './parts-svg/Chest'
+import { Abs } from './parts-svg/Abs'
+import { Back } from './parts-svg/Back'
+import { UpperLegs } from './parts-svg/UpperLegs'
+import { LowerLegs } from './parts-svg/LowerLegs'
 
 
 interface IBody { }

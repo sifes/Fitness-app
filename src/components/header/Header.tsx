@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { PATH } from '../utils/constants'
-import Logo from './Logo'
+import { PATH } from '../../utils/constants'
+import Logo from '../logo/Logo'
 
 const Header: React.FC = () => {
     return (

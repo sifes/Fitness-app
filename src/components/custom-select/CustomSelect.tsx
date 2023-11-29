@@ -1,8 +1,8 @@
 import React from 'react'
-import { IOption } from '../types';
+import { IOption } from '../../types';
 import Select, { GroupBase, OptionProps, StylesConfig } from 'react-select';
-import { equipment } from '../utils/constants';
-import { useActions } from '../hooks/useActions';
+import { equipment } from '../../utils/constants';
+import { useActions } from '../../hooks/useActions';
 
 
 const CustomOption: React.FC<OptionProps<IOption>> = ({ innerProps, label }) => {

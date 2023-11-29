@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
-import { useExercisesSelector } from '../hooks/store'
-import { useActions } from '../hooks/useActions'
+import { useExercisesSelector } from '../../hooks/store'
+import { useActions } from '../../hooks/useActions'
 
 interface IPagination { }
 

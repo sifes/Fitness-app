@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { PATH } from '../utils/constants'
+import { PATH } from '../../utils/constants'
 
 const Logo: React.FC = () => {
     return (

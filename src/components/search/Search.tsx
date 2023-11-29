@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as LinkScroll } from 'react-scroll';
-import { useActions } from '../hooks/useActions';
+import { useActions } from '../../hooks/useActions';
 
 const Search: React.FC = () => {
     const [inputValue, setinputValue] = React.useState<string>('') // this is a local state of input. it is for that user can see value, but it is actually wont search until he press enter or search button

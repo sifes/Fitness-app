@@ -4,7 +4,7 @@ import { useOptionsSelector } from '../../hooks/store';
 import { Option } from './Option';
 import { useActions } from '../../hooks/useActions';
 import { OptionsData, sliderSettings } from '../../utils/constants';
-import OptionsSelect from '../CustomSelect';
+import OptionsSelect from '../custom-select/CustomSelect';
 import { Body } from '../body/Body';
 
 const Options: React.FC = () => {
