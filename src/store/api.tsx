@@ -1,24 +1,23 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IExercise } from '../types';
 
-const url = 'https://exercisedb.p.rapidapi.com'; // /exercises/bodyPartList
 export const api = createApi({
-    reducerPath: 'exerciseApi',
-    baseQuery: fetchBaseQuery({
-        baseUrl: url, headers: {
-            'X-RapidAPI-Key': '3b22504ff1mshee8d3ab7dbb395fp14e064jsnc409977ffdbe',
-            'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-        }
+  reducerPath: 'exerciseApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_URL,
+    headers: {
+      'X-RapidAPI-Key': import.meta.env.VITE_API_KEY as string,
+      'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+    },
+  }),
+  endpoints: (builder) => ({
+    getExercises: builder.query<IExercise[], string>({
+      query: (query = '/') => `/exercises/${query}`,
     }),
-    endpoints: (builder) => ({
-        getExercises: builder.query<IExercise[], string>({
-            query: (query = '/') => `/exercises/${query}`,
-        }),
-        getExerciseByID: builder.query<IExercise, string>({
-            query: (query = '/') => `/exercises/exercise/${query}`,
-        }),
+    getExerciseByID: builder.query<IExercise, string>({
+      query: (query = '/') => `/exercises/exercise/${query}`,
     }),
-
+  }),
 });
 
 export const { useGetExercisesQuery, useGetExerciseByIDQuery } = api;
